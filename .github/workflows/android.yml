@@ -67,6 +67,10 @@ jobs:
 
       - name: Preparar Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          # El paquete "tools" que instala por defecto ya no existe en el repositorio de Google
+          # (fallaba con "Failed to find package 'tools'"), así que se piden solo los necesarios.
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
 
       - name: Preparar Gradle (con caché)
         uses: gradle/actions/setup-gradle@v5
