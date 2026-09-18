@@ -1,0 +1,225 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Verde salvia: color principal */
+  --color-salvia-50: #f1f6f3;
+  --color-salvia-100: #dfeae4;
+  --color-salvia-200: #bfd5ca;
+  --color-salvia-300: #97baa9;
+  --color-salvia-400: #6f9c88;
+  --color-salvia-500: #52806d;
+  --color-salvia-600: #3f6b5c;
+  --color-salvia-700: #345749;
+  --color-salvia-800: #2c473d;
+  --color-salvia-900: #243a32;
+
+  /* Fondos y textos cálidos */
+  --color-crema: #faf7f0;
+  --color-papel: #fffdf8;
+  --color-arena: #e6dfcf;
+  --color-arena-oscura: #cfc5b0;
+  --color-tinta: #2b2b28;
+  --color-suave: #5c584f;
+
+  /* Superficie "blanca" (cambia según el tema; text-white sigue siendo blanco real) */
+  --color-blanco: #ffffff;
+
+  /* Gráficos (validados para daltonismo y contraste sobre el fondo de las tarjetas) */
+  --color-grafico-1: #2a78d6;
+  --color-grafico-2: #eb6834;
+  --color-grafico-critico: #d03b3b;
+  --color-grafico-normal: #0ca30c;
+  --color-grafico-grilla: #e1e0d9;
+  --color-grafico-base: #c3c2b7;
+
+  /* Estados */
+  --color-coral: #a8412f;
+  --color-coral-claro: #fbe9e5;
+  --color-ambar: #7f5200;
+  --color-ambar-claro: #fdf1d8;
+  --color-cielo: #2c5a82;
+  --color-cielo-claro: #e6f0f8;
+  --color-exito: #2f6b3f;
+  --color-exito-claro: #e3f1e6;
+}
+
+/* ───────────────── Temas ─────────────────
+   Cada tema solo redefine los colores: las clases de Tailwind los leen como variables.
+   El tema se aplica con data-tema en <html> (src/lib/tema.ts). */
+
+[data-tema='oscuro'] {
+  --color-salvia-50: #1e2a25;
+  --color-salvia-100: #26352e;
+  --color-salvia-200: #32463c;
+  --color-salvia-300: #43594d;
+  --color-salvia-400: #5c7a6a;
+  --color-salvia-500: #7fa392;
+  --color-salvia-600: #34594c;
+  --color-salvia-700: #a9c9b8;
+  --color-salvia-800: #c2dccd;
+  --color-salvia-900: #dcebe2;
+
+  --color-crema: #121715;
+  --color-papel: #1b201e;
+  --color-blanco: #222825;
+  --color-arena: #333b37;
+  --color-arena-oscura: #4a544e;
+  --color-tinta: #eef2ee;
+  --color-suave: #b3bcb5;
+
+  --color-coral: #f19a8c;
+  --color-coral-claro: #3a221e;
+  --color-ambar: #f0c274;
+  --color-ambar-claro: #382c14;
+  --color-cielo: #8fbde4;
+  --color-cielo-claro: #1b2a36;
+  --color-exito: #86cf98;
+  --color-exito-claro: #1a2c1f;
+
+  --color-grafico-1: #5197e8;
+  --color-grafico-2: #cf7538;
+  --color-grafico-critico: #f47171;
+  --color-grafico-normal: #57c46b;
+  --color-grafico-grilla: #333b37;
+  --color-grafico-base: #4a544e;
+
+  color-scheme: dark;
+}
+
+[data-tema='azul'] {
+  --color-salvia-50: #eef4fb;
+  --color-salvia-100: #dce8f6;
+  --color-salvia-200: #bcd3ec;
+  --color-salvia-300: #92b6de;
+  --color-salvia-400: #6796cd;
+  --color-salvia-500: #4278b4;
+  --color-salvia-600: #2f5f94;
+  --color-salvia-700: #274e79;
+  --color-salvia-800: #223f61;
+  --color-salvia-900: #1c3450;
+
+  --color-crema: #f2f6fb;
+  --color-papel: #fbfdff;
+  --color-arena: #d8e2ee;
+  --color-arena-oscura: #b9c8da;
+  --color-tinta: #1f2937;
+  --color-suave: #55606f;
+
+  --color-grafico-grilla: #dde5ef;
+  --color-grafico-base: #bcc7d4;
+}
+
+[data-tema='contraste'] {
+  --color-salvia-50: #ffffff;
+  --color-salvia-100: #e8f0ec;
+  --color-salvia-200: #9db8ac;
+  --color-salvia-300: #5b8271;
+  --color-salvia-400: #2f5c49;
+  --color-salvia-500: #14402f;
+  --color-salvia-600: #0f3526;
+  --color-salvia-700: #0b2a1e;
+  --color-salvia-800: #061a13;
+  --color-salvia-900: #000000;
+
+  --color-crema: #ffffff;
+  --color-papel: #ffffff;
+  --color-blanco: #ffffff;
+  --color-arena: #000000;
+  --color-arena-oscura: #000000;
+  --color-tinta: #000000;
+  --color-suave: #1c1c1c;
+
+  --color-coral: #8c0000;
+  --color-coral-claro: #ffecec;
+  --color-ambar: #5a3600;
+  --color-ambar-claro: #fff3dc;
+  --color-cielo: #003f6e;
+  --color-cielo-claro: #e6f1fa;
+  --color-exito: #00491c;
+  --color-exito-claro: #e4f5e8;
+
+  --color-grafico-1: #14509e;
+  --color-grafico-2: #a3480c;
+  --color-grafico-critico: #a80000;
+  --color-grafico-normal: #00491c;
+  --color-grafico-grilla: #9a9a9a;
+  --color-grafico-base: #000000;
+}
+
+/* En alto contraste todo lleva borde grueso y el foco se ve más */
+:root[data-tema='contraste'] .tarjeta,
+:root[data-tema='contraste'] .control {
+  border-width: 2px;
+  box-shadow: none;
+}
+:root[data-tema='contraste'] :focus-visible {
+  outline: 4px solid #000000;
+  outline-offset: 3px;
+}
+
+@layer base {
+  /* Todo en la app escala desde acá: 18px en vez de 16px */
+  html {
+    font-size: 18px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-crema text-tinta font-sans antialiased;
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-bold text-salvia-900;
+    line-height: 1.25;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-salvia-500);
+    outline-offset: 2px;
+  }
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+  /* Quita las flechitas de los números: con dedos grandes molestan */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .tarjeta {
+    @apply rounded-2xl border border-arena bg-papel shadow-[0_1px_2px_rgba(60,50,30,0.06)];
+  }
+  .control {
+    @apply block w-full min-w-0 min-h-14 rounded-xl border-2 border-arena-oscura bg-blanco px-4 py-2 text-lg text-tinta
+      placeholder:text-suave/70 transition-colors
+      focus:border-salvia-500 focus:outline-none focus:ring-4 focus:ring-salvia-200;
+  }
+  .etiqueta {
+    @apply mb-1.5 block text-base font-bold text-salvia-900;
+  }
+}
+
+/* Barra inferior fija en celulares: deja lugar al final de la página */
+.con-barra-inferior {
+  padding-bottom: calc(6rem + var(--safe-area-inset-bottom, env(safe-area-inset-bottom)));
+}
+
+@media print {
+  .no-imprimir {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+}
